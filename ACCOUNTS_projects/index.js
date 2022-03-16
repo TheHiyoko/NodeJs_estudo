@@ -10,7 +10,7 @@ const create = create_account.create
 //const account = create_account.account
 
 // inicial function
-
+//chamada inicial do programa
 operation()
 
 function operation() {
@@ -34,13 +34,13 @@ function operation() {
         //pega resposta e transforma numa variavel 
         const action = answer['action']
 
-        if(action == 'Criar conta') {
-            console.log(chalk.bgGreen.black('Parabens por criar sua conta'))
-            console.log(chalk.green('Qual vai ser seu proximo passo?'))
-            create()
-        }else {
-            console.log('Nao foi')
-        }
+            if(action == 'Criar conta') {
+                console.log(chalk.bgGreen.black('Parabens por criar sua conta'))
+                console.log(chalk.green('Qual vai ser seu proximo passo?'))
+                create()
+            }else {
+                console.log('Nao foi')
+            }
     })
     .catch((err) => console.log(err))
 }

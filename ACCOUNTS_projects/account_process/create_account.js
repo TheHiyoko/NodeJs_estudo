@@ -4,9 +4,10 @@ const inquirer = require('inquirer')
 const operation = require('../index')
 
 //create account 
-    function create() {
+module.exports = {
+    create() {
         
-        //create
+            //create
         inquirer.prompt([
             {
                 name: 'account_name',
@@ -15,14 +16,16 @@ const operation = require('../index')
         ]).then(answer => {
             const acconut_name = answer['account_name']
 
+            //faz o informe do nome da conta ao user
             console.info(acconut_name) 
 
+            //return para fazer funcionar (paradgma funcional)
             if(!fs.existsSync('accounts')){
-                fs.mkdirSync('accounts')
+                return fs.mkdirSync('accounts')
             }
+            //trata o erro de uma conta já existir, eu acho
             if(fs.existsSync('accounts/'+acconut_name+'.json')){
-                console.log(chalk.bgRed.black('conta já existe'))
-                create()
+                throw new Error(chalk.bgRed.white('conta já existe'))
             }
 
             fs.writeFileSync(
@@ -37,8 +40,10 @@ const operation = require('../index')
 
 
         }).catch(err => console.log(err))
-    }
+        }
 
+    }
+        
     //account() {}
-export default create()
+
 
