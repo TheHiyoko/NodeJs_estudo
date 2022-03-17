@@ -38,7 +38,23 @@ function operation() {
                 console.log(chalk.bgGreen.black('Parabens por criar sua conta'))
                 console.log(chalk.green('Qual vai ser seu proximo passo?'))
                 create()
-            }else {
+            }
+            else if(action == 'Consultar saldo') {
+
+            }
+            else if(action == 'Depositar') {
+
+            }
+            else if(action == 'Sacar') {
+
+            }  
+            else if(action == 'Sair') {
+                console.log(chalk.bgBlue.black("Adeus e obrigado por usar"))
+                process.exit()
+
+            }
+            //messagem de codiog quebrado
+            else {
                 console.log('Nao foi')
             }
     })

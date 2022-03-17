@@ -1,7 +1,6 @@
 const chalk = require('chalk')
 const fs = require('fs')
 const inquirer = require('inquirer')
-const operation = require('../index')
 
 //create account 
 module.exports = {
@@ -16,14 +15,13 @@ module.exports = {
         ]).then(answer => {
             const acconut_name = answer['account_name']
 
-            //faz o informe do nome da conta ao user
             console.info(acconut_name) 
 
             //return para fazer funcionar (paradgma funcional)
             if(!fs.existsSync('accounts')){
                 return fs.mkdirSync('accounts')
             }
-            //trata o erro de uma conta já existir, eu acho
+            //trata
             if(fs.existsSync('accounts/'+acconut_name+'.json')){
                 throw new Error(chalk.bgRed.white('conta já existe'))
             }
